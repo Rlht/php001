@@ -25,37 +25,99 @@ main {
 
 header img {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 6%;
     height: 80%;
     right: -80%;
 }
+
 header nav {
     position: absolute;
     right: 9%;
     top: 3%;
-    font-size: 7rem;
-    
+    font-size: 3rem;
+
 }
+
 header hgroup {
     position: absolute;
-    top: 11%;
-    left: 10%;
+    top: 15%;
+    left: 8%;
+    z-index: 2;
 }
-header h1{
-    font-size: 8rem;
+
+header h1 {
+    font-size: 3.6rem;
 }
+
 header h3 {
-    font-size: 4rem;
+    font-size: 1.7rem;
 }
 
 #arrow {
-    width : 96px;
-    height: 96px;
-    border: 5px solid white;
+    width: 48px;
+    height: 48px;
+    border: 3px solid white;
     position: absolute;
     bottom: 10%;
     left: 50%;
-    transform: translateX (-50%);
+    transform: translateX(-50%);
     border-radius: 50%;
+    font-size: 3rem;
+    text-align: center;
+}
+
+@media (orientation: landscape) {
+    header img {
+        bottom: 10%;
+        height: 60%;
+        right: -10%;
+    }
+    header hgroup {
+        top: 18%;
+
+    }
+    header h1 {
+        font-size: 4rem;
+    }
+
+    header h3 {
+        font-size: 2rem;
+    }
+
+}
+
+@media (min-width:400px) {
+    header hgroup {
+        left: 6%;
+        top: 11%;
+    }
+    header h1 {
+        font-size: 4.3rem;
+    }
+    header h3 {
+        font-size: 2.15rem;
+    }
+
+}
+
+@media (min-width: 700px) {
+    header img {
+        right: -60%
+    }
+    header hgroup {
+        top: 20%;
+    }
+    header h1 {
+        font-size: 8rem;
+    }
+
+    header h3 {
+        font-size: 4rem;
+    }
+}
+
+@media only screen and (device-width: 375px) and (device-height: 812px) {
+    header img {
+        right: -98%;
+    }
 }
