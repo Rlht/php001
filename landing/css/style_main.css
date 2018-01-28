@@ -1,6 +1,6 @@
 main {
     background-color: black;
-    box-shadow: 0 0 2px 2px white;
+    box-shadow: 0 -2px 2px -2px white;
 }
 
 main img {
@@ -11,14 +11,16 @@ main img {
     filter: blur(50%);
     box-shadow: 0 0 3px 3px black;
     border-radius: 80% 80%;
+    width: 20%;
+
 }
 
 #inside {
     position: absolute;
     transform: translateX(50%);
     right: 50%;
-    top: 45%;
-    width: 70%;
-    height: 45%;
+    top: 40%;
+    width: 50%;
+    height: 58%;
     color: white;
 }

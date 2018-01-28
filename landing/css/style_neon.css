@@ -1,0 +1,116 @@
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+body {
+    height: 100vh;
+    background-color: black;
+    display: flex;
+}
+
+button {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+}
+
+ul {
+    margin: auto;
+}
+
+li {
+    opacity: 0;
+    color: yellow;
+    display: inline-block;
+    font-size: 40px;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-shadow: 0 0 25px white, 0 0 10px yellowgreen;
+    transition: opacity 0.3s;
+
+}
+
+li:nth-child(6) {
+    transform: rotate(15deg) translateY(4px);
+    animation: neon 0.8s infinite linear;
+}
+
+.on {
+    opacity: 1;
+}
+
+@keyframes neon {
+    0% {
+        opacity: 1;
+    }
+    3% {
+        opacity: 1;
+    }
+    5% {
+        opacity: 0.5;
+    }
+    7% {
+        opacity: 1;
+    }
+    12% {
+        opacity: 1;
+    }
+    14% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 0;
+    }
+    17% {
+        opacity: 0.5;
+    }
+    18% {
+        opacity: 0;
+    }
+    19 {
+        opacity: 1;
+    }
+    36% {
+        opacity: 1;
+    }
+    38% {
+        opacity: 0.5;
+    }
+    39% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    62% {
+        opacity: 0.4;
+    }
+    63% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    91% {
+        opacity: 0;
+    }
+    92% {
+        opacity: 0.5;
+    }
+    93% {
+        opacity: 0;
+    }
+
+    94% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}

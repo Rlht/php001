@@ -1,1 +1,1 @@
-$('#inside').load("/maintext.txt");
+
