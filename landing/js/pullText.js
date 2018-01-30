@@ -1,1 +1,1 @@
-
+$("#inside").write("hello");
