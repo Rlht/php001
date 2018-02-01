@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
@@ -10,5 +11,12 @@
 		Haslo:<br/> <input type="password" name="haslo" /> <br/><br/>
 		<input type="submit" value="Zaloguj sie" />
 	</form>    
+	
+	<?php 
+	
+	if(isset($_SESSION['blad'])) {
+	    echo $_SESSION['blad'];
+	}
+	?>
 </body>
 </html>
