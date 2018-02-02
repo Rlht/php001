@@ -1,4 +1,13 @@
-<?php session_start(); ?>
+<?php
+//sesia trwa
+session_start(); 
+if(isset($_SESSION['zalogowany']) && ($_SESSION['zalogowany']==true)) 
+{
+    //natychmiastwe przejscie, szkkoda mocy
+    header ('Location: gra.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
