@@ -21,12 +21,11 @@
     //encje HTML zmienia kod < na &lt
     $login = htmlentities($login,ENT_QUOTES,"UTF-8");
     $haslo = htmlentities($haslo,ENT_QUOTES,"UTF-8");
-    // zapytanie z mySQL
-    $sql = sprintf("SELECT * FROM uzytkownicy WHERE user='%s' AND pass='%s'",
-        my_sqli_real_escape_string($dbh,$login),
-        my_sqli_real_escape_string($dbh,$haslo));
+   
     // jesli zapytanie nie uda sie wykonac to false, literowka czy cos...
-    if ($rezultat = @$dbh->query($sql)) 
+    if ($rezultat = @$dbh->query(sprintf("SELECT * FROM uzytkownicy WHERE user='%s' AND pass='%s'",
+        mysqli_real_escape_string($dbh,$login),
+        mysqli_real_escape_string($dbh,$haslo)))) 
     {
         $ilu_userow = $rezultat->num_rows;
         if ($ilu_userow>0)

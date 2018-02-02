@@ -20,7 +20,7 @@ if(isset($_SESSION['zalogowany']) && ($_SESSION['zalogowany']==true))
 		Haslo:<br/> <input type="password" name="haslo" /> <br/><br/>
 		<input type="submit" value="Zaloguj sie" />
 	</form>    
-	
+	<br/><a href="rejestracja.php">Zaloz konto juz teraz!</a>
 	<?php 
 	
 	if(isset($_SESSION['blad'])) {
