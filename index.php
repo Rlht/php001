@@ -7,6 +7,7 @@ if(isset($_SESSION['zalogowany']) && ($_SESSION['zalogowany']==true))
     header ('Location: gra.php');
     exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -15,12 +16,19 @@ if(isset($_SESSION['zalogowany']) && ($_SESSION['zalogowany']==true))
     <title>Osadnicy</title>
 </head>
 <body>
+<?php 
+     if(isset($_SESSION['udanarejestracja']))
+        {
+            echo '<span style="color:red;">Konto utworzone, zapraszam do gry</span>';
+            unset ($_SESSION['udanarejestracja']);
+        };                  
+?>
 	<form action="zaloguj.php" method="post">
 		Login:<br/> <input type="text" name="login" /> <br/>
 		Haslo:<br/> <input type="password" name="haslo" /> <br/><br/>
 		<input type="submit" value="Zaloguj sie" />
 	</form>    
-	<br/><a href="rejestracja.php">Zaloz konto juz teraz!</a>
+	<br/><a href="rejestracja.php">Zaloz konto juz teraz!</a><br/>
 	<?php 
 	
 	if(isset($_SESSION['blad'])) {

@@ -20,36 +20,39 @@
     $haslo = $_POST['haslo'];
     //encje HTML zmienia kod < na &lt
     $login = htmlentities($login,ENT_QUOTES,"UTF-8");
-    $haslo = htmlentities($haslo,ENT_QUOTES,"UTF-8");
    
     // jesli zapytanie nie uda sie wykonac to false, literowka czy cos...
-    if ($rezultat = @$dbh->query(sprintf("SELECT * FROM uzytkownicy WHERE user='%s' AND pass='%s'",
-        mysqli_real_escape_string($dbh,$login),
-        mysqli_real_escape_string($dbh,$haslo)))) 
+    if ($rezultat = @$dbh->query(sprintf("SELECT * FROM uzytkownicy WHERE user='%s'",
+        mysqli_real_escape_string($dbh,$login)))) 
     {
         $ilu_userow = $rezultat->num_rows;
         if ($ilu_userow>0)
         {
-            $_SESSION['zalogowany']=true;
-            
-            //tablica ze skojarzeniem, pozwala przypisac indexy z tablicy g³ównej
-            $wiersz = $rezultat->fetch_assoc();
-            $_SESSION['id'] = $wiersz['id'];
-            $_SESSION['user'] = $wiersz['user'];
-            $_SESSION['drewno'] = $wiersz['drewno'];
-            $_SESSION['kamien'] = $wiersz['kamien'];
-            $_SESSION['zboze'] = $wiersz['zboze'];
-            $_SESSION['email'] = $wiersz['email'];
-            $_SESSION['dnipremium'] = $wiersz['dnipremium'];
-            // usun blad z sesji, zeby nie bylo go
-            unset($_SESSION['blad']);
-            //pozbywanie siê z pamiêci rezultatów TO RZECZ ŒWIÊTA
-            $rezultat->free();
-            // przekierowanie
-            header('Location: gra.php');
+                $wiersz = $rezultat->fetch_assoc();
+                if (password_verify($haslo, $wiersz['pass']))
+                {
+                
+                $_SESSION['zalogowany']=true;                    
+                $_SESSION['id'] = $wiersz['id'];
+                $_SESSION['user'] = $wiersz['user'];
+                $_SESSION['drewno'] = $wiersz['drewno'];
+                $_SESSION['kamien'] = $wiersz['kamien'];
+                $_SESSION['zboze'] = $wiersz['zboze'];
+                $_SESSION['email'] = $wiersz['email'];
+                $_SESSION['dnipremium'] = $wiersz['dnipremium'];
+                // usun blad z sesji, zeby nie bylo go
+                unset($_SESSION['blad']);
+                //pozbywanie siê z pamiêci rezultatów TO RZECZ ŒWIÊTA
+                $rezultat->free();
+                // przekierowanie
+                header('Location: gra.php');
+                } else {
+                    $_SESSION['blad'] = '<span style="color:red">Nieprawidlowy login lub haslo!</span>';
+                    header('Location: index.php');
+                }
         } else {
-            $_SESSION['blad'] = '<span style="color:red">Nieprawidlowy login lub haslo!</span>';
-            header('Location: index.php');
+                 $_SESSION['blad'] = '<span style="color:red">Nieprawidlowy login lub haslo!</span>';
+                 header('Location: index.php');
         }
     }
     
