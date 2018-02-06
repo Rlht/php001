@@ -85,7 +85,7 @@
                 if ($allgood)
                 {
                     //zapytanie insert
-                    if ($dbh->query("INSERT INTO uzytkownicy VALUES (NULL,'$nick','$haslo_hash','$email',100,100,100,0)"))
+                    if ($dbh->query("INSERT INTO uzytkownicy VALUES (NULL, '$nick', '$haslo_hash', '$email', 100, 100, 100, now() + INTERVAL 14 DAY)"))
                     {
                         $_SESSION['udanarejestracja'] = true;
                         header ('Location: index.php');
@@ -122,7 +122,7 @@
 
 <body>
     <form method="POST">
-        Nickname</br><input type="text" name="nick" /> </br>
+        Nickname</br><input type="text" name="nick" /></br>
         <?php 
 		  if(isset($_SESSION['e_nick']))
 		  {
