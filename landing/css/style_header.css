@@ -59,6 +59,10 @@ header h3 {
     font-size: 1.7rem;
 }
 
+header form {
+	position:absolute;
+}
+
 #arrow {
     width: 48px;
     height: 48px;
