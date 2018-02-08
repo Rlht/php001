@@ -1,6 +1,9 @@
 <?php 
     session_start();
-
+    if (isset ($_SESSION['logged_id'])) {
+        header ('Location: list.php');
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -24,6 +27,12 @@
 				<input placeholder="login" type="text" name="login"><br/><br/>
 				<input placeholder="password" type="password" name="pass"><br/><br/>
 				<input id="log" type="submit" value="Zaloguj">
+				<?php 
+				if (isset($_SESSION['bad_attempt'])) {
+				    echo'<p>Nieprawidlowy login lub haslo</p>';
+				    unset ($_SESSION['bad_attempt']);
+				}
+				?>
 			</form>
 		</article>
 	</div>
