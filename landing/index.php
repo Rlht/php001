@@ -1,4 +1,6 @@
-
+<?php 
+ $maintext = file('maintext.txt');
+?>
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -47,7 +49,11 @@
     <main>
         <img src="img/face_img.jpg">
         <div id="inside">
-            <script type="text/javascript" src="js/pullText.js"></script>
+            <?php 
+            foreach($maintext as $text) {
+                echo '<span>'.$text.'</span>';
+            }
+            ?>
         </div>
 
     </main>
